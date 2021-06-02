@@ -74,13 +74,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.black)
               ],
             ),
-            ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: shortcuts.length,
-                itemBuilder: (BuildContext cotext, int index) {
-                  return ShortcutCard(shortcut: shortcuts[index]);
-                }),
+            Container(
+              decoration: BoxDecoration(
+                  color: Color(0xff0d0d0d),
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(24))),
+              child: ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: shortcuts.length,
+                  itemBuilder: (BuildContext cotext, int index) {
+                    return ShortcutCard(shortcut: shortcuts[index]);
+                  }),
+            ),
           ]),
         ),
       ),
