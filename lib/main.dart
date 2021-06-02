@@ -50,10 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
     Shortcut(text: 'Three One One One One One One One One'),
     Shortcut(text: 'Three One One One One One One One One'),
   ];
+
+  static Color background = Color(0xff000000);
+  static Color decorationColor = Color(0xff0D0D0D);
+  static Color appBarColor = Color(0xffFF6633);
+  static Color white = Color(0xffffffff);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lime,
+      backgroundColor: appBarColor,
       // appBar:
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -63,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
             AppBar(
               title: Text('App'),
               centerTitle: true,
-              backgroundColor: Colors.lime,
+              backgroundColor: appBarColor,
               elevation: 0,
               actions: <Widget>[
                 IconButton(
@@ -71,12 +77,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       // handle the press
                     },
-                    color: Colors.black)
+                    color: background)
               ],
             ),
             Container(
               decoration: BoxDecoration(
-                  color: Color(0xff0d0d0d),
+                  color: decorationColor,
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(24))),
               child: ListView.builder(
