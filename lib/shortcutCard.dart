@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'shortcut.dart';
-import 'package:excel_shortcuts_app/shortcutIcon.dart';
 
 class ShortcutCard extends StatelessWidget {
-  final Shortcut shortcut;
+  final String shortcut;
   static Color containerText = Color(0xffbfbfbf);
   static Color containerBackground = Color(0xff242424);
   ShortcutCard({required this.shortcut});
-
-  List<String> string = ['Ctrl', 'A'];
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +19,9 @@ class ShortcutCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              shortcut.text,
-              style: TextStyle(fontSize: 18, color: containerText),
+              shortcut,
+              style: TextStyle(fontSize: 18, color: Colors.grey[200]),
             ),
-            ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: string.length,
-                itemBuilder: (BuildContext cotext, int index) {
-                  return ShortcutIcon(text: string[index]);
-                })
           ],
         ),
       ),

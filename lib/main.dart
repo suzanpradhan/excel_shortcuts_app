@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excel_shortcuts_app/shortcutIcon.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'shortcut.dart';
 import 'shortcutCard.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MaterialApp(home: MyHomePage()));
 }
 
@@ -86,12 +90,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: decorationColor,
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(24))),
-              child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: shortcuts.length,
-                  itemBuilder: (BuildContext cotext, int index) {
-                    return ShortcutCard(shortcut: shortcuts[index]);
+              child: StreamBuilder<QuerySnapshot>(
+                  stream: FirebaseFirestore.instance
+                      .collection('general')
+                      .snapshots(),
+                  builder: (context, stream) {
+                    if (stream.hasError) {
+                      return Text('Something went wrong');
+                    }
+
+                    if (stream.connectionState == ConnectionState.waiting) {
+                      return Text("Loading");
+                    }
+                    QuerySnapshot querySnapshot = stream.data!;
+                    return ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: querySnapshot.size,
+                        itemBuilder: (BuildContext cotext, int index) {
+                          return ShortcutCard(
+                              shortcut: querySnapshot.docs[index]['name'] +
+                                  ' ' +
+                                  querySnapshot.docs[index]['shortcut']);
+                        });
                   }),
             ),
           ]),
