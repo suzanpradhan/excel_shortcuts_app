@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excel_shortcuts_app/main2.dart';
+import 'package:excel_shortcuts_app/main3.dart';
 import 'package:excel_shortcuts_app/shortcutIcon.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ import 'shortcutCard.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(home: MyHomePage2()));
+  runApp(MaterialApp(home: MyHomePage3()));
 }
 
 class MyHomePage extends StatefulWidget {
@@ -78,8 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             itemCount: querySnapshot.size,
                             itemBuilder: (BuildContext cotext, int index) {
                               return ShortcutCard(
-                                  name: querySnapshot.docs[index]['name'],
-                                  shortcut: querySnapshot.docs[index]
+                                  name: querySnapshot.docs[0][index]['name'],
+                                  shortcut: querySnapshot.docs[0][index]
                                       ['shortcut']);
                             });
                       }),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ShortcutCard extends StatelessWidget {
-  final String shortcut;
-  final String name;
+class LinkCard extends StatelessWidget {
+  final String displayName;
+  final String id;
   static Color containerText = Color(0xffbfbfbf);
   static Color containerBackground = Color(0xff0D0D0D);
-  ShortcutCard({required this.shortcut, required this.name});
+  LinkCard({required this.displayName, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,12 @@ class ShortcutCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              name,
+              displayName,
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
             Text(
-              shortcut,
-              style: TextStyle(fontSize: 14, color: Colors.grey[200]),
+              id,
+              style: TextStyle(fontSize: 16, color: Colors.white),
             ),
           ],
         ),
