@@ -9,7 +9,7 @@ class FirestoreRepo {
     try {
       print("userID");
       QuerySnapshot<Map<String, dynamic>> data = await _firebaseFirestore
-          .collection('collectionID')
+          .collection(collectionID)
           .get()
           .catchError((error) {
         print(error.toString());

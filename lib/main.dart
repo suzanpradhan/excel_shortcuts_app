@@ -10,7 +10,13 @@ import 'shortcutCard.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(home: MyHomePage3()));
+  runApp(MaterialApp(
+    home: MyHomePage3(),
+    // routes: <String, WidgetBuilder>{
+    //   '/': (BuildContext context) => MyHomePage3(),
+    //   '/shortcut': (BuildContext context) => MyHomePage2()
+    // },
+  ));
 }
 
 class MyHomePage extends StatefulWidget {

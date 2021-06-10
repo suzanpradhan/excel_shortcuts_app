@@ -1,4 +1,10 @@
+import 'package:excel_shortcuts_app/main.dart';
+import 'package:excel_shortcuts_app/main2.dart';
+import 'package:excel_shortcuts_app/shortcutCard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'blocs/bloc/shortcutdata_bloc.dart';
 
 class LinkCard extends StatelessWidget {
   final String displayName;
@@ -13,22 +19,22 @@ class LinkCard extends StatelessWidget {
       width: double.infinity,
       // height: MediaQuery.of(context).copyWith().size.height,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8), color: containerBackground),
+          borderRadius: BorderRadius.circular(8), color: Colors.grey[900]),
+
       margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              displayName,
-              style: TextStyle(fontSize: 16, color: Colors.white),
-            ),
-            Text(
-              id,
-              style: TextStyle(fontSize: 16, color: Colors.white),
-            ),
-          ],
+      child: TextButton(
+        onPressed: () async {
+          await Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => MyHomePage2(
+                    collection: this.id,
+                  )));
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Text(
+            displayName,
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
         ),
       ),
     );

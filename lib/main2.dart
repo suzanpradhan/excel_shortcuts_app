@@ -8,6 +8,9 @@ import 'shortcut.dart';
 import 'shortcutCard.dart';
 
 class MyHomePage2 extends StatefulWidget {
+  final String collection;
+
+  const MyHomePage2({Key? key, required this.collection}) : super(key: key);
   @override
   _MyHomePage2State createState() => _MyHomePage2State();
 }
@@ -22,7 +25,7 @@ class _MyHomePage2State extends State<MyHomePage2> {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => ShortcutdataBloc()
-          ..add(RequestSpecificShortcutDatas(collectionID: "general")),
+          ..add(RequestSpecificShortcutDatas(collectionID: widget.collection)),
         child: Scaffold(
           backgroundColor: appBarColor,
           // appBar:
@@ -44,7 +47,7 @@ class _MyHomePage2State extends State<MyHomePage2> {
                           onPressed: () {
                             // handle the press
                           },
-                          color: background)
+                          color: Colors.grey[900])
                     ],
                   ),
                   Expanded(

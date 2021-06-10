@@ -13,7 +13,7 @@ class ShortcutCard extends StatelessWidget {
       width: double.infinity,
       // height: MediaQuery.of(context).copyWith().size.height,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8), color: containerBackground),
+          borderRadius: BorderRadius.circular(8), color: Colors.grey[900]),
       margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
