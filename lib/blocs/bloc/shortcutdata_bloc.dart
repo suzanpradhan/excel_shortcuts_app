@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:excel_shortcuts_app/repository/firestore_repo.dart';
-import 'package:excel_shortcuts_app/shortcut.dart';
+import 'package:excel_shortcuts_app/models/shortcut.dart';
 
 part 'shortcutdata_event.dart';
 part 'shortcutdata_state.dart';
@@ -29,7 +29,7 @@ class ShortcutdataBloc extends Bloc<ShortcutdataEvent, ShortcutdataState> {
           collectionID: event.collectionID);
       yield ShortcutDataLoaded(shorcutsListOfDatas: datas);
     } catch (e) {
-      yield ShortcutDataLoadFailed(message: "Cant't Load Datas.");
+      yield ShortcutDataLoadFailed(message: "Cant't Load Data.");
     }
   }
 }

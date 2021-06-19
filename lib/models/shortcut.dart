@@ -6,6 +6,7 @@ class Shortcut {
   Shortcut({required this.name, required this.shortcut});
 
   factory Shortcut.fromDbtoModel(DocumentSnapshot data) {
+    print(data["name"]);
     return Shortcut(name: data["name"], shortcut: data["shortcut"]);
   }
 }

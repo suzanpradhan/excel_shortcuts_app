@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:443642117854:android:e4c33d5a23b03d54b68c4f",
+        "mobilesdk_app_id": "1:443642117854:android:fc775bbddd966738b68c4f",
         "android_client_info": {
-          "package_name": "com.example.excel_shortcuts_app"
+          "package_name": "com.suzanpradhan.excel_shortcut_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "443642117854-klem1fj8plkt09kag5b79h2tbnl62dao.apps.googleusercontent.com",
+          "client_id": "443642117854-lgd4of2gcn772nf5ftchs5iu2n29jgjf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.excel_shortcuts_app",
+            "package_name": "com.suzanpradhan.excel_shortcut_app",
             "certificate_hash": "fcd4a1349e8bd3fbaa686625b4ff377237059fb3"
           }
         },

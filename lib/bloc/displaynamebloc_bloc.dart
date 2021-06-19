@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:excel_shortcuts_app/link.dart';
-import 'package:excel_shortcuts_app/linkCard.dart';
+import 'package:excel_shortcuts_app/models/link.dart';
+import 'package:excel_shortcuts_app/src/widgets/category_widget.dart';
 import 'package:excel_shortcuts_app/repository/firestore_repo.dart';
 
 part 'displaynamebloc_event.dart';
@@ -31,7 +31,7 @@ class DisplaynameblocBloc
           collectionID: event.collectionID);
       yield DisplaynameblocLoaded(linkListOfDatas: datas);
     } catch (e) {
-      yield DisplaynameblocFailed(message: "Cant't Load Datas.");
+      yield DisplaynameblocFailed(message: "Cant't Load Data.");
     }
   }
 }
