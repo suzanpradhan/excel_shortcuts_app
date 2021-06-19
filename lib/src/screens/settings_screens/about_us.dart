@@ -171,7 +171,7 @@ class _AboutUsState extends State<AboutUs> {
                                   fontWeight: FontWeight.bold,
                                 )),
                             TextSpan(
-                              text: '577-442-3915',
+                              text: '877-442-3915',
                             ),
                           ],
                         ),
